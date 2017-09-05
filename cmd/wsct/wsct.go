@@ -1,8 +1,6 @@
 package main
 
 import (
-	"log"
-
 	"github.com/shimokp/W-Shift-Trial-Server"
 )
 
@@ -18,7 +16,12 @@ func main() {
 	//b.Init(*dbconf, *env, *debug)
 	//b.Run(*addr)
 
-	err := wsct.DbTest()
-	log.Println(err)
+	s := wsct.New()
+	s.SetupDB()
+
+	s.SetupRouter()
+
+	//err := wsct.DbTest()
+	//log.Println(err)
 
 }

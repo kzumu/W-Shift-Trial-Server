@@ -3,8 +3,6 @@ package controller
 import (
 	"io/ioutil"
 
-	"log"
-
 	"github.com/gin-gonic/gin"
 	yaml "gopkg.in/yaml.v1"
 )
@@ -41,10 +39,8 @@ func GetDBconfig() (DBConfig, error) {
 	}
 
 	if gin.IsDebugging() {
-		log.Println("ISDEBUG!!")
 		c = t.Development
 	} else {
-		log.Println("NOTDEBUG!!")
 		c = t.Production
 	}
 	return c, nil
