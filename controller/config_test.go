@@ -8,7 +8,7 @@ import (
 	yaml "gopkg.in/yaml.v1"
 )
 
-func TestGetDBTest(t *testing.T) {
+func testGetDBTest(t *testing.T) {
 
 	te := TempDBConfig{}
 	c := DBConfig{}
