@@ -1,6 +1,8 @@
 package main
 
 import (
+	"log"
+
 	"github.com/shimokp/W-Shift-Trial-Server"
 )
 
@@ -17,7 +19,11 @@ func main() {
 	//b.Run(*addr)
 
 	s := wsct.New()
-	s.SetupDB()
+	err := s.SetupDB()
+	if err != nil {
+		log.Println(err)
+		panic(err)
+	}
 
 	s.SetupRouter()
 

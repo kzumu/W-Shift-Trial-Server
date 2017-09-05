@@ -27,6 +27,7 @@ type DBConfig struct {
 }
 
 func GetDBconfig() (DBConfig, error) {
+	// test is copy
 	t := TempDBConfig{}
 	c := DBConfig{}
 	bytes, err := ioutil.ReadFile("dbconfig.yml")
