@@ -16,6 +16,7 @@ func (d Database) CreateUser(c *gin.Context) {
 	id, err := model.CreateUserByUUID(d.DB, a)
 	if err != nil {
 		log.Println(err)
+		return
 	}
 
 	log.Println("UserId::", *id)
