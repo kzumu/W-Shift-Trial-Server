@@ -18,3 +18,9 @@ func CreateUserByUUID(db *sql.DB, uuid string) (*int64, error) {
 
 	return &id, nil
 }
+
+func FindUserById(db *sql.DB, id int) (User, error) {
+	row := db.QueryRow(`select * from users where id = ?`, id)
+
+	return ScanUser(row)
+}

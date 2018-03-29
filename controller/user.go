@@ -2,6 +2,7 @@ package controller
 
 import (
 	"log"
+	"strconv"
 
 	"net/http"
 
@@ -28,5 +29,20 @@ func (d Database) CreateUser(c *gin.Context) {
 }
 
 func (d Database) GetOneUser(c *gin.Context) {
+	strid := c.Param("id")
 
+	id, err := strconv.Atoi(strid)
+	if err != nil {
+		log.Println(err)
+	}
+
+	user, err := model.FindUserById(d.DB, id)
+	if err != nil {
+		log.Println(err)
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{
+		"uuid": user.Uuid,
+	})
 }
